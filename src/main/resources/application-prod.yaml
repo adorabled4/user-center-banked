@@ -1,0 +1,8 @@
+# 实际上线环境
+#首先更改数据库配置为云数据库(此处使用华为云)
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user-center?serverTimezone=UTC
+    username: root
+    password: qwer

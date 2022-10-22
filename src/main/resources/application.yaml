@@ -1,0 +1,40 @@
+## 项目名称
+#spring.application.name=user-center
+## MySQL驱动配置
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+## 使用默认数据源
+#spring.datasource.name=defaultDataSource
+## 数据路url
+#spring.datasource.url=jdbc:mysql://localhost:3306/blue?serverTimezone=UTC
+## 数据库信息
+#spring.datasource.ausername=root
+#spring.datasource.password=qwer
+## 默认端口号
+#server
+#  port=8080
+spring:
+  application:
+    name: user-center
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user-center?serverTimezone=UTC
+    username: root
+    password: qwer
+  session:
+    timeout: 86400 # session生效时间 ms
+
+server:
+  port: 8080 # 默认的端口号就是8080
+  servlet:
+    context-path: /api # 给后台的所有请求映射都加上 /api前缀
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 自动映射 字段名为驼峰
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 让mybatis 打印完整的sql 语句
+  global-config:
+    db-config:
+      logic-delete-field: is_delete # 全局逻辑删除的实体字段名 (我们删除一个数据不是真的删除,而是标记某个字段,表示这个数据不可用)
+      logic-delete-value: 1 #逻辑已删除值(默认为1 )
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为0)
+
+
